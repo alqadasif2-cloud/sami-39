@@ -1,0 +1,173 @@
+[
+  {
+    "id": "notif_1794181333651_1_bnbhm",
+    "type": "channel_important",
+    "title": "👑 Sami • قناة اختبار عامة مفتوحة",
+    "body": "توصية تداول جديدة: شراء الذهب XAU/USD",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": "e2e_pub_test_1794181318457",
+    "partnerId": null,
+    "chatType": "channel",
+    "messageId": "test_msg_1794181333650_1",
+    "targetUserIds": [
+      5,
+      2,
+      4
+    ],
+    "timestamp": 1794181333651,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794181334118_1_iql61",
+    "type": "private_message",
+    "title": "👑 رسالة خاصة من القائد Sami",
+    "body": "مرحباً هاني، تم تأكيد اشتراكك في التحدي.",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": null,
+    "partnerId": 1,
+    "chatType": "private",
+    "messageId": "test_pm_1794181334118_2",
+    "targetUserIds": [
+      2
+    ],
+    "timestamp": 1794181334118,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794181334179_1_1pccd",
+    "type": "channel_important",
+    "title": "👑 القائد Sami • رسالة هامة",
+    "body": "يرجى مراجعة إدارة المخاطر في الصفقات القادمة",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": null,
+    "partnerId": null,
+    "chatType": "channel",
+    "messageId": "notif_test_1794181334179",
+    "targetUserIds": [
+      2,
+      4
+    ],
+    "timestamp": 1794181334179,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794183499460_1_qzikh",
+    "type": "channel_important",
+    "title": "👑 Sami • قناة اختبار عامة مفتوحة",
+    "body": "توصية تداول جديدة: شراء الذهب XAU/USD",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": "e2e_pub_test_1794181318457",
+    "partnerId": null,
+    "chatType": "channel",
+    "messageId": "test_msg_1794183499459_1",
+    "targetUserIds": [
+      5,
+      2,
+      4
+    ],
+    "timestamp": 1794183499460,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794183499950_1_027k4",
+    "type": "private_message",
+    "title": "👑 رسالة خاصة من القائد Sami",
+    "body": "مرحباً هاني، تم تأكيد اشتراكك في التحدي.",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": null,
+    "partnerId": 1,
+    "chatType": "private",
+    "messageId": "test_pm_1794183499950_2",
+    "targetUserIds": [
+      2
+    ],
+    "timestamp": 1794183499950,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794183500027_1_ulkik",
+    "type": "channel_important",
+    "title": "👑 القائد Sami • رسالة هامة",
+    "body": "يرجى مراجعة إدارة المخاطر في الصفقات القادمة",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": null,
+    "partnerId": null,
+    "chatType": "channel",
+    "messageId": "notif_test_1794183500027",
+    "targetUserIds": [
+      2,
+      4
+    ],
+    "timestamp": 1794183500027,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794184177507_1_t48os",
+    "type": "channel_important",
+    "title": "👑 Sami • قناة اختبار عامة مفتوحة",
+    "body": "توصية تداول جديدة: شراء الذهب XAU/USD",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": "e2e_pub_test_1794181318457",
+    "partnerId": null,
+    "chatType": "channel",
+    "messageId": "test_msg_1794184177506_1",
+    "targetUserIds": [
+      5,
+      2,
+      4
+    ],
+    "timestamp": 1794184177507,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794184177995_1_pyu5v",
+    "type": "private_message",
+    "title": "👑 رسالة خاصة من القائد Sami",
+    "body": "مرحباً هاني، تم تأكيد اشتراكك في التحدي.",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": null,
+    "partnerId": 1,
+    "chatType": "private",
+    "messageId": "test_pm_1794184177995_2",
+    "targetUserIds": [
+      2
+    ],
+    "timestamp": 1794184177995,
+    "priority": "high",
+    "fcmStatus": "queued"
+  },
+  {
+    "id": "notif_1794184178073_1_9um7g",
+    "type": "channel_important",
+    "title": "👑 القائد Sami • رسالة هامة",
+    "body": "يرجى مراجعة إدارة المخاطر في الصفقات القادمة",
+    "senderId": 1,
+    "senderName": "Sami",
+    "channelId": null,
+    "partnerId": null,
+    "chatType": "channel",
+    "messageId": "notif_test_1794184178072",
+    "targetUserIds": [
+      2,
+      4
+    ],
+    "timestamp": 1794184178073,
+    "priority": "high",
+    "fcmStatus": "queued"
+  }
+]

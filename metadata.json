@@ -1,0 +1,8 @@
+{
+  "name": "Sami - Trading Challenge Tracker",
+  "description": "منصة سامي لتتبع تحديات التداول وقنوات التوصيات وإدارة المحطات المالية والدردشة الفورية",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

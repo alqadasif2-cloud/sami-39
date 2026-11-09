@@ -1,0 +1,494 @@
+/**
+ * Sami Visual Compatibility Engine for Older Android Versions & WebViews
+ * Solves:
+ * 1. oklch() and oklab() missing support in Chromium < 111 (Android 7-11)
+ * 2. color-mix() missing support in Chromium < 111
+ * 3. backdrop-filter transparency glitches on older Mali/Adreno GPUs
+ * 4. High-contrast solid fallbacks for buttons, cards, headers, and dialogs
+ * 5. Zero-bleed background image dimming
+ */
+
+/* ==========================================================================
+   1. CORE RGB/HEX VARIABLE FALLBACKS (UNIVERSAL BROWSER SUPPORT)
+   ========================================================================== */
+:root, :host {
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-rose-200: #fecdd3;
+  --color-rose-300: #fda4af;
+  --color-rose-400: #fb7185;
+  --color-rose-500: #f43f5e;
+  --color-rose-600: #e11d48;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --sami-bg-root: #050811;
+  --sami-bg-card: #0d131f;
+  --sami-bg-card-alt: #121824;
+  --sami-bg-nav: #080d1a;
+  --sami-gold-primary: #fbbf24;
+  --sami-gold-dark: #f59e0b;
+}
+
+/* ==========================================================================
+   2. GUARANTEED SOLID BACKGROUNDS (NO TRANSPARENT COLLAPSE)
+   ========================================================================== */
+.bg-slate-800 {
+  background-color: #1e293b !important;
+}
+.bg-slate-800\/50 {
+  background-color: rgba(30, 41, 59, 0.75) !important;
+}
+.bg-slate-800\/80 {
+  background-color: rgba(30, 41, 59, 0.90) !important;
+}
+.bg-slate-900 {
+  background-color: #0f172a !important;
+}
+.bg-slate-900\/90 {
+  background-color: #0f172a !important;
+  background-color: rgba(15, 23, 42, 0.96) !important;
+}
+.bg-slate-900\/40 {
+  background-color: rgba(15, 23, 42, 0.70) !important;
+}
+.bg-slate-950 {
+  background-color: #020617 !important;
+}
+.bg-slate-950\/85 {
+  background-color: #050811 !important;
+  background-color: rgba(5, 8, 17, 0.94) !important;
+}
+.bg-slate-950\/80 {
+  background-color: #050811 !important;
+  background-color: rgba(5, 8, 17, 0.92) !important;
+}
+
+/* Custom dark hex classes used in Sami */
+.bg-\[\#050811\] {
+  background-color: #050811 !important;
+}
+.bg-\[\#050811\]\/80 {
+  background-color: #050811 !important;
+  background-color: rgba(5, 8, 17, 0.92) !important;
+}
+.bg-\[\#070a10\] {
+  background-color: #070a10 !important;
+}
+.bg-\[\#0b0f17\] {
+  background-color: #0b0f17 !important;
+}
+.bg-\[\#0b0f17\]\/95 {
+  background-color: #0b0f17 !important;
+  background-color: rgba(11, 15, 23, 0.98) !important;
+}
+.bg-\[\#0d131f\] {
+  background-color: #0d131f !important;
+}
+.bg-\[\#0d131f\]\/90 {
+  background-color: #0d131f !important;
+  background-color: rgba(13, 19, 31, 0.96) !important;
+}
+.bg-\[\#121824\] {
+  background-color: #121824 !important;
+}
+.bg-\[\#121824\]\/90 {
+  background-color: #121824 !important;
+  background-color: rgba(18, 24, 36, 0.96) !important;
+}
+.bg-\[\#141d30\] {
+  background-color: #141d30 !important;
+}
+.bg-\[\#141d30\]\/95 {
+  background-color: #141d30 !important;
+  background-color: rgba(20, 29, 48, 0.98) !important;
+}
+.bg-\[\#0a101f\] {
+  background-color: #0a101f !important;
+}
+.bg-\[\#080d1a\] {
+  background-color: #080d1a !important;
+}
+.bg-\[\#141b2a\] {
+  background-color: #141b2a !important;
+}
+
+/* Gold backgrounds */
+.bg-amber-400 {
+  background-color: #fbbf24 !important;
+}
+.bg-amber-500 {
+  background-color: #f59e0b !important;
+}
+.bg-amber-400\/10 {
+  background-color: rgba(251, 191, 36, 0.12) !important;
+}
+.bg-amber-400\/15 {
+  background-color: rgba(251, 191, 36, 0.18) !important;
+}
+.bg-amber-400\/20 {
+  background-color: rgba(251, 191, 36, 0.24) !important;
+}
+.bg-amber-500\/10 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+}
+.bg-amber-500\/15 {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+}
+.bg-amber-500\/20 {
+  background-color: rgba(245, 158, 11, 0.24) !important;
+}
+
+/* Emerald & Rose backgrounds */
+.bg-emerald-400\/20 {
+  background-color: rgba(52, 211, 153, 0.24) !important;
+}
+.bg-emerald-500\/20 {
+  background-color: rgba(16, 185, 129, 0.24) !important;
+}
+.bg-rose-500\/20 {
+  background-color: rgba(244, 63, 94, 0.24) !important;
+}
+
+/* ==========================================================================
+   3. GUARANTEED TEXT CONTRAST (NO INVISIBLE OR MUTED TEXT)
+   ========================================================================== */
+.text-slate-100 {
+  color: #f1f5f9 !important;
+}
+.text-slate-200 {
+  color: #e2e8f0 !important;
+}
+.text-slate-300 {
+  color: #cbd5e1 !important;
+}
+.text-slate-400 {
+  color: #94a3b8 !important;
+}
+.text-amber-300 {
+  color: #fcd34d !important;
+}
+.text-amber-400 {
+  color: #fbbf24 !important;
+}
+.text-amber-500 {
+  color: #f59e0b !important;
+}
+.text-emerald-400 {
+  color: #34d399 !important;
+}
+.text-rose-400 {
+  color: #fb7185 !important;
+}
+.text-slate-950 {
+  color: #020617 !important;
+}
+
+/* ==========================================================================
+   4. BORDERS WITH HIGH CONTRAST & GOLD GLOW
+   ========================================================================== */
+.border-slate-800 {
+  border-color: #1e293b !important;
+}
+.border-slate-700 {
+  border-color: #334155 !important;
+}
+.border-slate-800\/80 {
+  border-color: rgba(30, 41, 59, 0.85) !important;
+}
+.border-slate-700\/70 {
+  border-color: rgba(51, 65, 85, 0.75) !important;
+}
+.border-slate-700\/80 {
+  border-color: rgba(51, 65, 85, 0.85) !important;
+}
+.border-amber-400 {
+  border-color: #fbbf24 !important;
+}
+.border-amber-500 {
+  border-color: #f59e0b !important;
+}
+.border-amber-500\/20 {
+  border-color: rgba(245, 158, 11, 0.28) !important;
+}
+.border-amber-500\/30 {
+  border-color: rgba(245, 158, 11, 0.38) !important;
+}
+.border-amber-500\/40 {
+  border-color: rgba(245, 158, 11, 0.48) !important;
+}
+.border-amber-500\/45 {
+  border-color: rgba(245, 158, 11, 0.52) !important;
+}
+.border-amber-400\/30 {
+  border-color: rgba(251, 191, 36, 0.38) !important;
+}
+.border-amber-400\/40 {
+  border-color: rgba(251, 191, 36, 0.48) !important;
+}
+.border-amber-400\/60 {
+  border-color: rgba(251, 191, 36, 0.68) !important;
+}
+.border-emerald-500\/30 {
+  border-color: rgba(16, 185, 129, 0.38) !important;
+}
+.border-rose-500\/30 {
+  border-color: rgba(244, 63, 94, 0.38) !important;
+}
+
+/* ==========================================================================
+   5. SOLID BUTTONS SYSTEM (PREVENTS EXCESSIVE TRANSPARENCY)
+   ========================================================================== */
+.gold-cta-button,
+button.bg-amber-400,
+button.bg-amber-500 {
+  background: #f59e0b !important;
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%) !important;
+  color: #050811 !important;
+  font-weight: 800 !important;
+  border: 1px solid #fde68a !important;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.38) !important;
+}
+
+button.bg-slate-800 {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #334155 !important;
+}
+
+button.bg-slate-900 {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #1e293b !important;
+}
+
+/* ==========================================================================
+   6. CARDS & VISUAL CONTAINERS SYSTEM
+   ========================================================================== */
+.luxury-gold-card {
+  background-color: #0d1424 !important;
+  background: linear-gradient(145deg, #10182a 0%, #080d1a 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85) !important;
+}
+
+.luxury-channel-card {
+  background-color: #0e1526 !important;
+  background: linear-gradient(135deg, #101829 0%, #090e1b 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.32) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85) !important;
+}
+
+.luxury-channel-card-featured {
+  background-color: #141c2e !important;
+  background: linear-gradient(135deg, #181e2e 0%, #0d121f 100%) !important;
+  border: 1.5px solid rgba(251, 191, 36, 0.75) !important;
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.35) !important;
+}
+
+/* Bottom Navigation Bar: Solid, crisp, and permanently visible */
+nav,
+.sticky.bottom-0 {
+  background-color: #050811 !important;
+  background: linear-gradient(180deg, rgba(12, 19, 36, 0.98) 0%, #050811 100%) !important;
+  border-top: 1px solid rgba(245, 158, 11, 0.32) !important;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* ==========================================================================
+   7. MODALS, POPUPS & BACKDROPS (PREVENTS BLEED-THROUGH)
+   ========================================================================== */
+.fixed.inset-0.z-50 {
+  background-color: rgba(3, 6, 14, 0.92) !important;
+}
+
+.fixed.inset-0.z-50 > div {
+  background-color: #0f1626 !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95) !important;
+}
+
+/* ==========================================================================
+   8. BACKGROUND OVERLAY STABILIZATION
+   ========================================================================== */
+/* Ensures the background image is sufficiently darkened so text is always 100% readable */
+[aria-hidden="true"] > img[src*="background_image"] + div {
+  background-color: rgba(3, 6, 14, 0.78) !important;
+}
+
+/* ==========================================================================
+   9. LEGACY ANDROID / NO-BACKDROP-FILTER ENHANCEMENTS
+   ========================================================================== */
+@supports not (backdrop-filter: blur(10px)) {
+  .backdrop-blur-md,
+  .backdrop-blur-sm,
+  .backdrop-blur-xl,
+  .backdrop-blur-xs {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .bg-\[\#0d131f\]\/90,
+  .bg-\[\#121824\]\/90 {
+    background-color: #0c121e !important;
+  }
+}
+
+.sami-legacy-android .backdrop-blur-md,
+.sami-legacy-android .backdrop-blur-sm,
+.sami-legacy-android .backdrop-blur-xl,
+.sami-legacy-android .backdrop-blur-xs {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.sami-legacy-android .bg-\[\#0d131f\]\/90 {
+  background-color: #0c121e !important;
+}
+
+.sami-legacy-android .bg-\[\#121824\]\/90 {
+  background-color: #0f1626 !important;
+}
+
+.sami-legacy-android .bg-\[\#141d30\]\/95 {
+  background-color: #121a2d !important;
+}
+
+.sami-legacy-android input,
+.sami-legacy-android select,
+.sami-legacy-android textarea {
+  background-color: #0a0f1c !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+/* ==========================================================================
+   10. MODERN PREMIUM MESSENGER UI & CHAT STYLES (NAVY, BLACK & GOLD)
+   ========================================================================== */
+.sami-chat-container {
+  background-color: #050811 !important;
+}
+
+/* User Message Bubble: Deep Modern Navy */
+.sami-msg-me {
+  background: linear-gradient(135deg, #152238 0%, #101b2d 100%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Other User Message Bubble: Dark Charcoal */
+.sami-msg-other {
+  background: linear-gradient(135deg, #111827 0%, #0d131f 100%) !important;
+  border: 1px solid rgba(51, 65, 85, 0.6) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Leader / Sami Message Bubble: Royal Obsidian with Gold Accents */
+.sami-msg-leader {
+  background: linear-gradient(135deg, #161e2e 0%, #111624 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.08), 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Moderator Message Bubble: Deep Teal Accents */
+.sami-msg-moderator {
+  background: linear-gradient(135deg, #0d1f22 0%, #0a1619 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Deleted Message */
+.sami-msg-deleted {
+  background-color: #090e17 !important;
+  border: 1px solid #1e293b !important;
+  color: #64748b !important;
+  font-style: italic !important;
+}
+
+/* Reaction pill badge */
+.sami-reaction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1;
+  background-color: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  color: #cbd5e1;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+.sami-reaction-pill:hover {
+  background-color: rgba(30, 41, 59, 0.95);
+  border-color: rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+.sami-reaction-pill.is-active {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+  border-color: #fbbf24 !important;
+  color: #fde68a !important;
+  font-weight: 700 !important;
+}
+
+/* Reply quote banner inside message */
+.sami-reply-card {
+  margin: 0.35rem 0;
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.75rem;
+  background-color: rgba(3, 7, 18, 0.65);
+  border-right: 3px solid #fbbf24;
+  text-align: right;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.sami-reply-card:hover {
+  background-color: rgba(3, 7, 18, 0.85);
+}
+
+/* Pinned messages bar */
+.sami-pinned-bar {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(15, 23, 42, 0.95)) !important;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Highlight animation for jumped-to message */
+@keyframes samiMessageHighlight {
+  0% {
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.8), 0 0 30px rgba(251, 191, 36, 0.4);
+    background-color: rgba(245, 158, 11, 0.25);
+  }
+  70% {
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.5), 0 0 20px rgba(251, 191, 36, 0.2);
+    background-color: rgba(245, 158, 11, 0.15);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+.sami-message-highlight {
+  animation: samiMessageHighlight 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

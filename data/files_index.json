@@ -1,0 +1,86 @@
+{
+  "chat_files_1792892433_1792892549705_r52yl8": {
+    "id": "chat_files_1792892433_1792892549705_r52yl8",
+    "fileName": "test_doc.pdf",
+    "fileSize": 24,
+    "fileType": "application/pdf",
+    "fileUrl": "/api/files/chat_files_1792892433_1792892549705_r52yl8",
+    "storagePath": "chat_files/chat_files_1792892433_1792892549705_r52yl8_test_doc.pdf",
+    "uploaderId": 1792892433,
+    "channelId": "general_trading",
+    "isCloudStorage": false,
+    "createdAt": 1792892549705
+  },
+  "chat_images_2_1793842569525_bgxzvq": {
+    "id": "chat_images_2_1793842569525_bgxzvq",
+    "fileName": "trading_chart_test.jpg",
+    "fileSize": 102400,
+    "fileType": "image/jpeg",
+    "fileUrl": "/api/files/chat_images_2_1793842569525_bgxzvq",
+    "storagePath": "chat_images/chat_images_2_1793842569525_bgxzvq_trading_chart_test.jpg",
+    "uploaderId": 2,
+    "channelId": "test_pub_chan_1793842568768",
+    "isCloudStorage": false,
+    "createdAt": 1793842569525
+  },
+  "chat_audio_2_1793842569526_ratxhs": {
+    "id": "chat_audio_2_1793842569526_ratxhs",
+    "fileName": "voice_1793842569526_u2.m4a",
+    "fileSize": 256000,
+    "fileType": "audio/mp4",
+    "fileUrl": "/api/files/chat_audio_2_1793842569526_ratxhs",
+    "storagePath": "chat_audio/chat_audio_2_1793842569526_ratxhs_voice_1793842569526_u2.m4a",
+    "uploaderId": 2,
+    "channelId": "test_pub_chan_1793842568768",
+    "isCloudStorage": false,
+    "createdAt": 1793842569526
+  },
+  "chat_images_2_1793842590115_3kvu50": {
+    "id": "chat_images_2_1793842590115_3kvu50",
+    "fileName": "trading_chart_test.jpg",
+    "fileSize": 102400,
+    "fileType": "image/jpeg",
+    "fileUrl": "/api/files/chat_images_2_1793842590115_3kvu50",
+    "storagePath": "chat_images/chat_images_2_1793842590115_3kvu50_trading_chart_test.jpg",
+    "uploaderId": 2,
+    "channelId": "test_pub_chan_1793842589450",
+    "isCloudStorage": false,
+    "createdAt": 1793842590115
+  },
+  "chat_audio_2_1793842590117_z34m7x": {
+    "id": "chat_audio_2_1793842590117_z34m7x",
+    "fileName": "voice_1793842590117_u2.m4a",
+    "fileSize": 256000,
+    "fileType": "audio/mp4",
+    "fileUrl": "/api/files/chat_audio_2_1793842590117_z34m7x",
+    "storagePath": "chat_audio/chat_audio_2_1793842590117_z34m7x_voice_1793842590117_u2.m4a",
+    "uploaderId": 2,
+    "channelId": "test_pub_chan_1793842589450",
+    "isCloudStorage": false,
+    "createdAt": 1793842590117
+  },
+  "chat_images_2_1793842668340_ouc04w": {
+    "id": "chat_images_2_1793842668340_ouc04w",
+    "fileName": "trading_chart_test.jpg",
+    "fileSize": 102400,
+    "fileType": "image/jpeg",
+    "fileUrl": "/api/files/chat_images_2_1793842668340_ouc04w",
+    "storagePath": "chat_images/chat_images_2_1793842668340_ouc04w_trading_chart_test.jpg",
+    "uploaderId": 2,
+    "channelId": "test_pub_chan_1793842667670",
+    "isCloudStorage": false,
+    "createdAt": 1793842668340
+  },
+  "chat_audio_2_1793842668342_easusa": {
+    "id": "chat_audio_2_1793842668342_easusa",
+    "fileName": "voice_1793842668342_u2.m4a",
+    "fileSize": 256000,
+    "fileType": "audio/mp4",
+    "fileUrl": "/api/files/chat_audio_2_1793842668342_easusa",
+    "storagePath": "chat_audio/chat_audio_2_1793842668342_easusa_voice_1793842668342_u2.m4a",
+    "uploaderId": 2,
+    "channelId": "test_pub_chan_1793842667670",
+    "isCloudStorage": false,
+    "createdAt": 1793842668342
+  }
+}
